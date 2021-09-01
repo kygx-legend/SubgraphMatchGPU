@@ -24,12 +24,14 @@ BACKTRACE_FLAGS = -Xcompiler -rdynamic
 # UNTRACK_ALLOC_LARGE_VERTEX_NUM: for a large graph with a large number of vertices, use UnTrackMalloc to allocate the data structures in GraphDevTracker to avoid reach the GPU memory limit. This is just a temporary fix. Need to have generalized implementation.
 # NVPROFILE: for nvprof focused profiling
 
-CFLAGS += -O3 -std=c++11 -DUNTRACK_ALLOC_LARGE_VERTEX_NUM -DPTHREAD_LOCK \
+CFLAGS += -O3 -std=c++14 -DUNTRACK_ALLOC_LARGE_VERTEX_NUM -DPTHREAD_LOCK \
+          -DTHRUST_IGNORE_CUB_VERSION_CHECK \
 					-DPROFILE # -DCUDA_CONTEXT_PROFILE \
 					#-DDEBUG  \
 					#-DREUSE_PROFILE
 
-ARCH = -gencode arch=compute_61,code=sm_70 -gencode arch=compute_61,code=compute_61
+#ARCH = -gencode arch=compute_61,code=sm_70 -gencode arch=compute_61,code=compute_61
+ARCH = -gencode arch=compute_75,code=sm_75 -gencode arch=compute_75,code=compute_75
 
 all: patternmatchgpu
 build: patternmatchgpu

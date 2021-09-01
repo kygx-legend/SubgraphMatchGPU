@@ -6,11 +6,11 @@
 // typedef launch_box_t<arch_70_cta<128, 11, 9>, arch_61_cta<128, 11, 9>>
 //    MGPULaunchBox;
 
-typedef mgpu::launch_box_t<mgpu::arch_70_cta<128, 8, 8>,
-                           mgpu::arch_61_cta<128, 8, 8>>
+typedef mgpu::launch_box_t<mgpu::arch_75_cta<128, 8, 8>,
+                           mgpu::arch_75_cta<128, 8, 8>>
     MGPULaunchBox;
 
-typedef mgpu::launch_box_t<mgpu::arch_70_cta<128, 1>, mgpu::arch_61_cta<128, 1>>
+typedef mgpu::launch_box_t<mgpu::arch_75_cta<128, 1>, mgpu::arch_75_cta<128, 1>>
     MGPULaunchBoxVT1;
 
 #endif

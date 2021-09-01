@@ -36,10 +36,17 @@ class HybridInterplayPatternMatch : public HybridSeparatePatternMatch {
         std::cout << "thread_id=" << omp_thread_id << " acquire device "
                   << dev_id << std::endl;
         CUDA_ERROR(cudaSetDevice(dev_id));
+        phase_profiler_->StartTimer("intra_part_time", omp_thread_id);
         GPUThreadIntraPart(omp_thread_id, dev_id,
                            thread_intra_part_ans[omp_thread_id]);
+        phase_profiler_->EndTimer("intra_part_time", omp_thread_id);
+        double total_intra_part_time = phase_profiler_->AggregatePhase("intra_part_time");
+        std::cout << "total_intra_part_time: " << total_intra_part_time << std::endl;
+        phase_profiler_->AggregatePhase("intra_part_time");
+        phase_profiler_->StartTimer("inter_part_time", omp_thread_id);
         GPUThreadInterPart(omp_thread_id, dev_id,
                            thread_inter_part_ans[omp_thread_id]);
+        phase_profiler_->EndTimer("inter_part_time", omp_thread_id);
         dev_manager_->ReleaseDevice(omp_thread_id, dev_id);
       }
     }

@@ -82,8 +82,9 @@ class PatternMatch {
 
     PrintStatistics();
 
-    std::cout << "total_match_count=" << total_match_count_
-              << ", elapsed_time=" << total_elapsed_time / 1000.0 << "ms"
+    std::cout << std::fixed << "total_match_count=" << total_match_count_
+              << ", init_elapsed_time=" << int(init_elapsed_time / 1000.0) << "ms"
+              << ", total_elapsed_time=" << int(total_elapsed_time / 1000.0) << "ms"
               << std::endl;
   }
 
@@ -122,7 +123,7 @@ class PatternMatch {
               << ", cpu_execute_time="
               << total_cpu_execute_time / thread_num_ / 1000.0
               << "ms (avg per thread)" << std::endl;
-    std::cout << "total_intra_part_time_=" << total_intra_part_time / 1000.0
+    std::cout << std::fixed << "total_intra_part_time_=" << total_intra_part_time / 1000.0
               << "ms, total_inter_part_time=" << total_inter_part_time / 1000.0
               << "ms" << std::endl;
 

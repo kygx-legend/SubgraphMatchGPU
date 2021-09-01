@@ -40,3 +40,7 @@ test_cuda_memory
 test_cudpp
 .vscode
 lib/fennel/fennel
+
+run/
+test/
+test_old/

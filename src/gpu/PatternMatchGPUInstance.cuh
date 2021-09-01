@@ -38,6 +38,7 @@ static void InitGPUInstance(
     HybridGPUComponent *&itp_gpu_comp, PatternMatch *&pattern_match) {
   cpu_graph = new TrackPartitionedGraph(filename, directed, partition_filename,
                                         partition_num);
+  std::cout << "inter edges count: " << cpu_graph->GetInterPartitionEdgesCount() << std::endl;
   query = new Query(query_id, enable_ordering);
 
   if (execute_mode == HYBRID_CPU_GPU) {
