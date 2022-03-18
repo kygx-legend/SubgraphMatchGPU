@@ -41,9 +41,9 @@ class HybridSeparatePatternMatch : public PatternMatch {
     cpu_comp_->Init();
   }
 
-  virtual void GPUCPUExecute(long long &ans) {
-    long long gpu_ans = 0;
-    long long cpu_ans = 0;
+  virtual void GPUCPUExecute(size_t &ans) {
+    size_t gpu_ans = 0;
+    size_t cpu_ans = 0;
 
     auto cpu_task =
         std::async(std::launch::async, [&]() { this->CPUExecute(&cpu_ans); });
@@ -56,7 +56,7 @@ class HybridSeparatePatternMatch : public PatternMatch {
   }
 
  protected:
-  virtual void CPUExecute(long long *cpu_ans) {
+  virtual void CPUExecute(size_t *cpu_ans) {
     InterPartTask task;
     while (inter_scheduler_->GetTask(task, true)) {
       //    std::cout << "CPU start process inter-partition [" <<
@@ -72,9 +72,9 @@ class HybridSeparatePatternMatch : public PatternMatch {
     count_profiler_->AddCount("cpu_find_count", 0, *cpu_ans);
   }
 
-  virtual void GPUExecute(long long *gpu_ans) {
+  virtual void GPUExecute(size_t *gpu_ans) {
     size_t gpu_thread_num = plan_->GetDevPartitionNum();
-    std::vector<long long> thread_ans(gpu_thread_num, 0);
+    std::vector<size_t> thread_ans(gpu_thread_num, 0);
 #pragma omp parallel num_threads(gpu_thread_num)
     {
       size_t omp_thread_id = ParallelUtils::GetParallelThreadId();
@@ -97,7 +97,7 @@ class HybridSeparatePatternMatch : public PatternMatch {
   }
 
   virtual void GPUThreadIntraPart(size_t omp_thread_id, size_t dev_id,
-                                  long long &thread_ans) {
+                                  size_t &thread_ans) {
     size_t h_partition_id = cpu_relation_->GetPartitionNum();
     while (intra_scheduler_->GetPartitionForTask(h_partition_id)) {
       // copy graph to device memory

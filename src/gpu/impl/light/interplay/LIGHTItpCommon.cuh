@@ -16,7 +16,7 @@ struct LightItpWorkContext : LightWorkContext {
     dfs_dev_plan = NULL;
   }
   void Set(size_t _d_partition_id, size_t _thread_num,
-           TrackPartitionedGraph* _cpu_relation, long long* _ans,
+           TrackPartitionedGraph* _cpu_relation, size_t* _ans,
            CudaContext* _context, DevGraphPartition* _graph_partition,
            GPUProfiler* _gpu_profiler, CountProfiler* _count_profiler,
            LazyTraversalPlan* _plan, ImData* _im_data,

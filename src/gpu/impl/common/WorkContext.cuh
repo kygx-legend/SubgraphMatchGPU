@@ -11,7 +11,7 @@ struct WorkContext {
   size_t d_partition_id;
   size_t thread_num;
   TrackPartitionedGraph* cpu_relation;
-  long long* ans;
+  size_t* ans;
 
   CudaContext* context;
   DevGraphPartition* graph_partition;
@@ -29,7 +29,7 @@ struct WorkContext {
   }
 
   void Set(size_t d_partition_id, size_t thread_num,
-           TrackPartitionedGraph* cpu_relation, long long* ans,
+           TrackPartitionedGraph* cpu_relation, size_t* ans,
            CudaContext* context, DevGraphPartition* graph_partition,
            GPUProfiler* gpu_profiler, CountProfiler* count_profiler) {
     this->d_partition_id = d_partition_id;

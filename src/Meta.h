@@ -24,10 +24,10 @@ const static size_t MAX_BLOCKS_NUM = 96 * 8;
 const static size_t MAX_THREADS_NUM = MAX_BLOCKS_NUM * THREADS_PER_BLOCK;
 
 const static size_t kDeviceMemoryLimits[3] = {
-    (size_t)(8.0 * 1024 * 1024 * 1024), (size_t)(8.0 * 1024 * 1024 * 1024),
-    (size_t)(8.0 * 1024 * 1024 * 1024)};
+    (size_t)(10.6 * 1024 * 1024 * 1024), (size_t)(10.5 * 1024 * 1024 * 1024),
+    (size_t)(10.5 * 1024 * 1024 * 1024)};
 
-const static size_t kMaxQueryVerticesNum = 6;
+const static size_t kMaxQueryVerticesNum = 7;
 // sample
 const size_t kRandomWalkSampleNum = 10240;
 const double ALPHA = 0.1;
@@ -116,6 +116,16 @@ enum QueryType {
   Q11,  // 6CLIQUE
   Q12,  // NEAR_NEAR_5_CLIQUE
   Q13,  // TRIANGLE_IN_DIAMOND
+  Q14,  // 5 circle
+  Q15,  // 7 clique
+  Q16,  // 2 tails triangle
+  Q17,  // 6 circle
+
+  Q18,  // p12
+  Q19,  // p13
+  Q20,  // p14
+  Q21,  // p15
+  Q22,  // p18
 
   kQueryType,
   // one line with two vertices, for partitioner

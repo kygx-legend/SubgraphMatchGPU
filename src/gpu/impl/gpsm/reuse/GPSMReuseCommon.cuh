@@ -151,7 +151,7 @@ struct GpsmReuseWorkContextGeneral : public GpsmWorkContext {
   GpsmReuseWorkContextGeneral() : GpsmWorkContext() { cache_data = NULL; }
 
   void Set(size_t d_partition_id, size_t thread_num,
-           TrackPartitionedGraph* cpu_relation, long long* ans,
+           TrackPartitionedGraph* cpu_relation, size_t* ans,
            CudaContext* context, DevGraphPartition* graph_partition,
            GPUProfiler* gpu_profiler, CountProfiler* count_profiler,
            TraversalPlan* plan, ImData* im_data,

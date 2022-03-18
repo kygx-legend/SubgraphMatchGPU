@@ -11,7 +11,7 @@ static void VerifyItpCompute(
     CudaContext *context, ImData *im_data, ImDataDevHolder *im_data_holder,
     DevLazyTraversalPlan *dev_plan, DevGraphPartition *graph_partition,
     LazyTraversalPlan *plan, GraphDevTracker *graph_dev_tracker,
-    TrackPartitionedGraph *cpu_relation, InterPartTask *task, long long &ans) {
+    TrackPartitionedGraph *cpu_relation, InterPartTask *task, size_t &ans) {
   auto &exec_seq = plan->GetInterPartitionExecuteOperations()[dfs_id];
   auto op = exec_seq[cur_exec_level].first;
   uintV cur_level = exec_seq[cur_exec_level].second;

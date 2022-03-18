@@ -8,20 +8,20 @@
 enum TaskType { INTRA_PARTITION, INTER_PARTITION, VERTEX_SET, kTaskType };
 
 struct Task {
-  void Set(TaskType task_type, long long* ans, size_t d_partition_id) {
+  void Set(TaskType task_type, size_t* ans, size_t d_partition_id) {
     task_type_ = task_type;
     ans_ = ans;
     d_partition_id_ = d_partition_id;
   }
   TaskType task_type_;
   // result
-  long long* ans_;
+  size_t* ans_;
   // gpu id
   size_t d_partition_id_;
 };
 
 struct IntraPartTask : Task {
-  void Set(TaskType task_type, long long* ans, size_t d_partition_id,
+  void Set(TaskType task_type, size_t* ans, size_t d_partition_id,
            GraphPartition* cpu_partition, uintV start_offset,
            uintV end_offset) {
     Task::Set(task_type, ans, d_partition_id);
@@ -43,7 +43,7 @@ struct IntraPartTask : Task {
 };
 
 struct InterPartTask : Task {
-  void Set(TaskType task_type, long long* ans, uintE start_offset,
+  void Set(TaskType task_type, size_t* ans, uintE start_offset,
            uintE end_offset, size_t d_partition_id) {
     Task::Set(task_type, ans, d_partition_id);
     ans_ = ans;
@@ -59,7 +59,7 @@ struct InterPartTask : Task {
 };
 
 struct VertexSetTask : Task {
-  void Set(TaskType task_type, long long* ans, uintV* vertices,
+  void Set(TaskType task_type, size_t* ans, uintV* vertices,
            size_t vertex_count, size_t d_partition_id) {
     Task::Set(task_type, ans, d_partition_id);
     ans_ = ans;

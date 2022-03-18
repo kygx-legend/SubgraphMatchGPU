@@ -14,13 +14,13 @@ using LayeredArray = std::vector<Array<T> >;
 struct LightCPUWorkContext {
   size_t group_id;
   size_t dfs_id;
-  long long *ans;
+  size_t *ans;
 
   // intermediate result
   Array<uintV> path;
   LayeredArray<uintV> candidates;
 
-  void Init(size_t group_id, size_t dfs_id, long long *ans,
+  void Init(size_t group_id, size_t dfs_id, size_t *ans,
             size_t vertex_count) {
     this->group_id = group_id;
     this->dfs_id = dfs_id;

@@ -14,7 +14,7 @@ class IMGPUPatternMatch : public HybridSeparatePatternMatch {
   // To reuse the code, we consider the in-memory GPU setting as processing a
   // graph with a single partition in the hybrid mode. In this case, all
   // instances are intra-partition and processed by GPUs only.
-  virtual void GPUCPUExecute(long long &ans) {
+  virtual void GPUCPUExecute(size_t &ans) {
     assert(cpu_relation_->GetPartitionNum() == 1);
     GPUExecute(&ans);
   }

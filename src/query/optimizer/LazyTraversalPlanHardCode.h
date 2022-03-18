@@ -50,6 +50,33 @@ class LazyTraversalPlanHardcode {
       case Q13:
         Q13LazyPlan(seq, vertex_count);
         break;
+      case Q14:
+        Q14LazyPlan(seq, vertex_count);
+        break;
+      case Q15:
+        Q15LazyPlan(seq, vertex_count);
+        break;
+      case Q16:
+        Q16LazyPlan(seq, vertex_count);
+        break;
+      case Q17:
+        Q17LazyPlan(seq, vertex_count);
+        break;
+      case Q18:
+        Q18LazyPlan(seq, vertex_count);
+        break;
+      case Q19:
+        Q19LazyPlan(seq, vertex_count);
+        break;
+      case Q20:
+        Q20LazyPlan(seq, vertex_count);
+        break;
+      case Q21:
+        Q21LazyPlan(seq, vertex_count);
+        break;
+      case Q22:
+        Q22LazyPlan(seq, vertex_count);
+        break;
       default:
         assert(false);
         break;
@@ -111,6 +138,42 @@ class LazyTraversalPlanHardcode {
     seq.assign(ord, ord + vertex_count);
   }
   static void Q13LazyPlan(SearchSequence& seq, size_t vertex_count) {
+    const uintV ord[] = {0, 1, 2, 3, 4, 5};
+    seq.assign(ord, ord + vertex_count);
+  }
+  static void Q14LazyPlan(SearchSequence& seq, size_t vertex_count) {
+    const uintV ord[] = {0, 1, 2, 3, 4};
+    seq.assign(ord, ord + vertex_count);
+  }
+  static void Q15LazyPlan(SearchSequence& seq, size_t vertex_count) {
+    const uintV ord[] = {0, 1, 2, 3, 4, 5, 6};
+    seq.assign(ord, ord + vertex_count);
+  }
+  static void Q16LazyPlan(SearchSequence& seq, size_t vertex_count) {
+    const uintV ord[] = {0, 1, 2, 3, 4};
+    seq.assign(ord, ord + vertex_count);
+  }
+  static void Q17LazyPlan(SearchSequence& seq, size_t vertex_count) {
+    const uintV ord[] = {0, 1, 2, 3, 4, 5};
+    seq.assign(ord, ord + vertex_count);
+  }
+  static void Q18LazyPlan(SearchSequence& seq, size_t vertex_count) {
+    const uintV ord[] = {0, 1, 2, 3, 4, 5};
+    seq.assign(ord, ord + vertex_count);
+  }
+  static void Q19LazyPlan(SearchSequence& seq, size_t vertex_count) {
+    const uintV ord[] = {0, 1, 2, 3, 4, 5};
+    seq.assign(ord, ord + vertex_count);
+  }
+  static void Q20LazyPlan(SearchSequence& seq, size_t vertex_count) {
+    const uintV ord[] = {0, 1, 2, 3, 4, 5, 6};
+    seq.assign(ord, ord + vertex_count);
+  }
+  static void Q21LazyPlan(SearchSequence& seq, size_t vertex_count) {
+    const uintV ord[] = {0, 1, 2, 3, 4, 5, 6};
+    seq.assign(ord, ord + vertex_count);
+  }
+  static void Q22LazyPlan(SearchSequence& seq, size_t vertex_count) {
     const uintV ord[] = {0, 1, 2, 3, 4, 5};
     seq.assign(ord, ord + vertex_count);
   }

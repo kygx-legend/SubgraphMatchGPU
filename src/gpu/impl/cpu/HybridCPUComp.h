@@ -43,10 +43,10 @@ class HybridCPUComponent {
   void Execute(Task *task) {
     assert(task->task_type_ == INTER_PARTITION);
     InterPartTask *inter_part_task = static_cast<InterPartTask *>(task);
-    long long &ans = *(inter_part_task->ans_);
+    size_t &ans = *(inter_part_task->ans_);
 
-    long long *thread_ans = new long long[thread_num_];
-    memset(thread_ans, 0, sizeof(long long) * thread_num_);
+    size_t *thread_ans = new size_t[thread_num_];
+    memset(thread_ans, 0, sizeof(size_t) * thread_num_);
 #pragma omp parallel for num_threads(thread_num_)
     for (uintE e = inter_part_task->start_offset_;
          e < inter_part_task->end_offset_; ++e) {
@@ -69,7 +69,7 @@ class HybridCPUComponent {
 
   void ThreadExecute(Task *task) {
     InterPartTask *inter_part_task = static_cast<InterPartTask *>(task);
-    long long &ans = *(inter_part_task->ans_);
+    size_t &ans = *(inter_part_task->ans_);
 
     for (uintE e = inter_part_task->start_offset_;
          e < inter_part_task->end_offset_; ++e) {
@@ -84,7 +84,7 @@ class HybridCPUComponent {
     }
   }
 
-  virtual void ThreadExecute(size_t thread_id, long long &ans, uintV u,
+  virtual void ThreadExecute(size_t thread_id, size_t &ans, uintV u,
                              uintV v) {
     // given a starting data edge (v0,v1)
     paths_[thread_id][0] = u;
@@ -113,7 +113,7 @@ class HybridCPUComponent {
 
  private:
   void DFS(size_t thread_id, size_t match_vertices_count, uintV *path,
-           long long &ans, AllConnType &intersect_levels,
+           size_t &ans, AllConnType &intersect_levels,
            AllCondType &conditions) {
     if (match_vertices_count == plan_->GetVertexCount()) {
       ans++;

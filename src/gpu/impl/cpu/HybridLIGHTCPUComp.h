@@ -27,7 +27,7 @@ class HybridLIGHTCPUComponent : public HybridCPUComponent {
     work_meta_ = NULL;
   }
 
-  virtual void ThreadExecute(size_t thread_id, long long &ans, uintV v1,
+  virtual void ThreadExecute(size_t thread_id, size_t &ans, uintV v1,
                              uintV v2) {
     auto &group_dfs_ids = plan_->GetGroupDfsIds();
     for (size_t group_id = 0; group_id < group_dfs_ids.size(); ++group_id) {
@@ -167,7 +167,7 @@ class HybridLIGHTCPUComponent : public HybridCPUComponent {
   }
 
   void Count(WorkMeta *meta, LightCPUWorkContext *ctx, size_t cur_exec_level) {
-    long long *ans = ctx->ans;
+    size_t *ans = ctx->ans;
     uintV *path = ctx->path.data();
     size_t group_id = ctx->group_id;
     for (auto dfs_id : plan_->GetGroupDfsIds()[group_id]) {

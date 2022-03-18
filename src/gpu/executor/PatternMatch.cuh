@@ -96,7 +96,7 @@ class PatternMatch {
 
   virtual void InitGPUCPUComponent() = 0;
 
-  virtual void GPUCPUExecute(long long &ans) = 0;
+  virtual void GPUCPUExecute(size_t &ans) = 0;
 
   void PrintStatistics() {
 #if defined(PROFILE)
@@ -109,7 +109,7 @@ class PatternMatch {
         phase_profiler_->AggregatePhase("intra_part_time");
     double total_inter_part_time =
         phase_profiler_->AggregatePhase("inter_part_time");
-    long long total_intra_partition_count =
+    size_t total_intra_partition_count =
         count_profiler_->GetCount("intra_partition_count");
 
     // total_cpu_execute_time -= total_gpu_execute_time;
@@ -136,7 +136,7 @@ class PatternMatch {
 #endif
   }
 
-  long long GetTotalMatchCount() const { return total_match_count_; }
+  size_t GetTotalMatchCount() const { return total_match_count_; }
 
   // For interplay, GPU would search inter-partition instances
   bool UseInterplay() const {
@@ -158,7 +158,7 @@ class PatternMatch {
   CountProfiler *count_profiler_;
   PhaseProfiler *phase_profiler_;
 
-  long long total_match_count_;
+  size_t total_match_count_;
 };
 
 #endif

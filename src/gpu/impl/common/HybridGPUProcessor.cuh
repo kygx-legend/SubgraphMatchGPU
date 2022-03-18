@@ -27,8 +27,8 @@ class HybridGPUProcessor {
     for (size_t batch_id = 0; batch_id < batch_manager->GetBatchNum();
          ++batch_id) {
       BatchSpec batch_spec = batch_manager->GetBatch(batch_id);
-      this->PrintProgress(cur_exec_level, batch_id,
-                          batch_manager->GetBatchNum(), batch_spec);
+      //this->PrintProgress(cur_exec_level, batch_id,
+      //                    batch_manager->GetBatchNum(), batch_spec);
 
       this->PrepareBatch(cur_exec_level, im_batch_data, batch_spec);
 

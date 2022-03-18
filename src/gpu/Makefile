@@ -26,12 +26,14 @@ BACKTRACE_FLAGS = -Xcompiler -rdynamic
 
 CFLAGS += -O3 -std=c++14 -DUNTRACK_ALLOC_LARGE_VERTEX_NUM -DPTHREAD_LOCK \
           -DTHRUST_IGNORE_CUB_VERSION_CHECK \
+          -DNVPROFILE \
 					-DPROFILE # -DCUDA_CONTEXT_PROFILE \
 					#-DDEBUG  \
 					#-DREUSE_PROFILE
 
 #ARCH = -gencode arch=compute_61,code=sm_70 -gencode arch=compute_61,code=compute_61
 ARCH = -gencode arch=compute_75,code=sm_75 -gencode arch=compute_75,code=compute_75
+#ARCH = -gencode arch=compute_86,code=sm_86 -gencode arch=compute_86,code=compute_86
 
 all: patternmatchgpu
 build: patternmatchgpu

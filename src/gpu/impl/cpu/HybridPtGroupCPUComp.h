@@ -24,7 +24,7 @@ class HybridPartialGroupCPUComponent : public HybridCPUComponent {
     paths_ = NULL;
   }
 
-  virtual void ThreadExecute(size_t thread_id, long long &ans, uintV u,
+  virtual void ThreadExecute(size_t thread_id, size_t &ans, uintV u,
                              uintV v) {
     paths_[thread_id][0] = u;
     paths_[thread_id][1] = v;
@@ -53,7 +53,7 @@ class HybridPartialGroupCPUComponent : public HybridCPUComponent {
 
  private:
   void PartialGroupDFS(size_t thread_id, size_t cur_level, uintV *path,
-                       long long &ans, BitSet &status) {
+                       size_t &ans, BitSet &status) {
     size_t cur_group_num = level_group_dfs_ids_[cur_level].size();
     for (size_t group_id = 0; group_id < cur_group_num; ++group_id) {
       // the set of dfs in the current group

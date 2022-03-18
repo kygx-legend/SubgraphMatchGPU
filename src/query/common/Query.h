@@ -40,6 +40,24 @@ class Query {
       Q12Query();
     } else if (query_type_ == Q13) {
       Q13Query();
+    } else if (query_type_ == Q14) {
+      Q14Query();
+    } else if (query_type_ == Q15) {
+      Q15Query();
+    } else if (query_type_ == Q16) {
+      Q16Query();
+    } else if (query_type_ == Q17) {
+      Q17Query();
+    } else if (query_type_ == Q18) {
+      Q18Query();
+    } else if (query_type_ == Q19) {
+      Q19Query();
+    } else if (query_type_ == Q20) {
+      Q20Query();
+    } else if (query_type_ == Q21) {
+      Q21Query();
+    } else if (query_type_ == Q22) {
+      Q22Query();
     } else if (query_type_ == LINE) {
       // for preprocessing edge weight
       // do nothing here
@@ -396,9 +414,11 @@ class Query {
     con_[4].push_back(3);
 
     order_.resize(vertex_count_);
-    order_[0].push_back(std::make_pair(LESS_THAN, 1));
+    order_[3].push_back(std::make_pair(LESS_THAN, 1));
+    order_[1].push_back(std::make_pair(LESS_THAN, 0));
     order_[2].push_back(std::make_pair(LESS_THAN, 4));
-    order_[1].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[0].push_back(std::make_pair(LARGER_THAN, 1));
+    order_[1].push_back(std::make_pair(LARGER_THAN, 3));
     order_[4].push_back(std::make_pair(LARGER_THAN, 2));
   }
 
@@ -429,6 +449,283 @@ class Query {
     order_[0].push_back(std::make_pair(LESS_THAN, 1));
     order_[1].push_back(std::make_pair(LESS_THAN, 2));
     order_[1].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[2].push_back(std::make_pair(LARGER_THAN, 1));
+  }
+
+  void Q14Query() {
+    vertex_count_ = 5;
+    con_.resize(vertex_count_);
+    con_[0].push_back(1);
+    con_[0].push_back(2);
+    con_[1].push_back(0);
+    con_[1].push_back(3);
+    con_[2].push_back(0);
+    con_[2].push_back(4);
+    con_[3].push_back(1);
+    con_[3].push_back(4);
+    con_[4].push_back(2);
+    con_[4].push_back(3);
+
+    order_.resize(vertex_count_);
+    order_[0].push_back(std::make_pair(LESS_THAN, 1));
+    order_[0].push_back(std::make_pair(LESS_THAN, 2));
+    order_[0].push_back(std::make_pair(LESS_THAN, 3));
+    order_[0].push_back(std::make_pair(LESS_THAN, 4));
+    order_[1].push_back(std::make_pair(LESS_THAN, 2));
+    order_[1].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[2].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[3].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[4].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[2].push_back(std::make_pair(LARGER_THAN, 1));
+  }
+
+  void Q15Query() {
+    vertex_count_ = 7;
+    con_.resize(vertex_count_);
+    for (uintV i = 0; i < vertex_count_; ++i) {
+      for (uintV j = 0; j < vertex_count_; ++j) {
+        if (j != i) {
+          con_[i].push_back(j);
+        }
+      }
+    }
+    order_.resize(vertex_count_);
+    for (uintV i = 0; i + 1 < vertex_count_; ++i) {
+      order_[i].push_back(std::make_pair(LESS_THAN, i + 1));
+      order_[i + 1].push_back(std::make_pair(LARGER_THAN, i));
+    }
+  }
+
+  void Q16Query() {
+    vertex_count_ = 5;
+    con_.resize(vertex_count_);
+    con_[0].push_back(1);
+    con_[0].push_back(2);
+    con_[0].push_back(3);
+    con_[1].push_back(0);
+    con_[1].push_back(2);
+    con_[2].push_back(0);
+    con_[2].push_back(1);
+    con_[3].push_back(0);
+    con_[3].push_back(4);
+    con_[4].push_back(3);
+
+    order_.resize(vertex_count_);
+    order_[1].push_back(std::make_pair(LESS_THAN, 2));
+    order_[2].push_back(std::make_pair(LARGER_THAN, 1));
+  }
+
+  void Q17Query() {
+    vertex_count_ = 6;
+    con_.resize(vertex_count_);
+    con_[0].push_back(1);
+    con_[0].push_back(2);
+    con_[1].push_back(0);
+    con_[1].push_back(3);
+    con_[2].push_back(0);
+    con_[2].push_back(4);
+    con_[3].push_back(1);
+    con_[3].push_back(5);
+    con_[4].push_back(2);
+    con_[4].push_back(5);
+    con_[5].push_back(3);
+    con_[5].push_back(4);
+
+    order_.resize(vertex_count_);
+    order_[0].push_back(std::make_pair(LESS_THAN, 1));
+    order_[0].push_back(std::make_pair(LESS_THAN, 2));
+    order_[0].push_back(std::make_pair(LESS_THAN, 3));
+    order_[0].push_back(std::make_pair(LESS_THAN, 4));
+    order_[0].push_back(std::make_pair(LESS_THAN, 5));
+    order_[1].push_back(std::make_pair(LESS_THAN, 2));
+    order_[1].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[2].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[3].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[4].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[5].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[2].push_back(std::make_pair(LARGER_THAN, 1));
+  }
+
+  void Q18Query() {
+    vertex_count_ = 6;
+    con_.resize(vertex_count_);
+    con_[0].push_back(1);
+    con_[0].push_back(2);
+    con_[0].push_back(3);
+    con_[0].push_back(4);
+    con_[0].push_back(5);
+    con_[1].push_back(0);
+    con_[1].push_back(2);
+    con_[1].push_back(3);
+    con_[1].push_back(4);
+    con_[1].push_back(5);
+    con_[2].push_back(0);
+    con_[2].push_back(1);
+    con_[2].push_back(3);
+    con_[2].push_back(4);
+    con_[3].push_back(0);
+    con_[3].push_back(1);
+    con_[3].push_back(2);
+    con_[4].push_back(0);
+    con_[4].push_back(1);
+    con_[4].push_back(2);
+    con_[5].push_back(0);
+    con_[5].push_back(1);
+
+    order_.resize(vertex_count_);
+    order_[0].push_back(std::make_pair(LESS_THAN, 1));
+    order_[3].push_back(std::make_pair(LESS_THAN, 4));
+    order_[1].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[4].push_back(std::make_pair(LARGER_THAN, 3));
+  }
+
+  void Q19Query() {
+    vertex_count_ = 6;
+    con_.resize(vertex_count_);
+    con_[0].push_back(1);
+    con_[0].push_back(2);
+    con_[0].push_back(3);
+    con_[0].push_back(4);
+    con_[1].push_back(0);
+    con_[1].push_back(3);
+    con_[1].push_back(4);
+    con_[1].push_back(5);
+    con_[2].push_back(0);
+    con_[2].push_back(5);
+    con_[3].push_back(0);
+    con_[3].push_back(1);
+    con_[4].push_back(0);
+    con_[4].push_back(1);
+    con_[5].push_back(1);
+    con_[5].push_back(2);
+
+    order_.resize(vertex_count_);
+    order_[0].push_back(std::make_pair(LESS_THAN, 1));
+    order_[3].push_back(std::make_pair(LESS_THAN, 4));
+    order_[1].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[4].push_back(std::make_pair(LARGER_THAN, 3));
+  }
+
+  void Q20Query() {
+    vertex_count_ = 7;
+    con_.resize(vertex_count_);
+    con_[0].push_back(1);
+    con_[0].push_back(2);
+    con_[0].push_back(3);
+    con_[0].push_back(4);
+    con_[0].push_back(5);
+    con_[0].push_back(6);
+    con_[1].push_back(0);
+    con_[1].push_back(2);
+    con_[1].push_back(3);
+    con_[1].push_back(4);
+    con_[1].push_back(5);
+    con_[1].push_back(6);
+    con_[2].push_back(0);
+    con_[2].push_back(1);
+    con_[2].push_back(3);
+    con_[2].push_back(4);
+    con_[2].push_back(5);
+    con_[3].push_back(0);
+    con_[3].push_back(1);
+    con_[3].push_back(2);
+    con_[3].push_back(4);
+    con_[4].push_back(0);
+    con_[4].push_back(1);
+    con_[4].push_back(2);
+    con_[4].push_back(3);
+    con_[5].push_back(0);
+    con_[5].push_back(1);
+    con_[5].push_back(2);
+    con_[6].push_back(0);
+    con_[6].push_back(1);
+
+    order_.resize(vertex_count_);
+    order_[0].push_back(std::make_pair(LESS_THAN, 1));
+    order_[3].push_back(std::make_pair(LESS_THAN, 4));
+    order_[1].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[4].push_back(std::make_pair(LARGER_THAN, 3));
+  }
+
+  void Q21Query() {
+    vertex_count_ = 7;
+    con_.resize(vertex_count_);
+    con_[0].push_back(1);
+    con_[0].push_back(2);
+    con_[0].push_back(3);
+    con_[0].push_back(4);
+    con_[0].push_back(5);
+    con_[0].push_back(6);
+    con_[1].push_back(0);
+    con_[1].push_back(2);
+    con_[1].push_back(3);
+    con_[1].push_back(4);
+    con_[1].push_back(5);
+    con_[1].push_back(6);
+    con_[2].push_back(0);
+    con_[2].push_back(1);
+    con_[2].push_back(3);
+    con_[2].push_back(4);
+    con_[3].push_back(0);
+    con_[3].push_back(1);
+    con_[3].push_back(2);
+    con_[3].push_back(4);
+    con_[4].push_back(0);
+    con_[4].push_back(1);
+    con_[4].push_back(2);
+    con_[4].push_back(3);
+    con_[5].push_back(0);
+    con_[5].push_back(1);
+    con_[6].push_back(0);
+    con_[6].push_back(1);
+
+    order_.resize(vertex_count_);
+    order_[0].push_back(std::make_pair(LESS_THAN, 1));
+    order_[2].push_back(std::make_pair(LESS_THAN, 3));
+    order_[2].push_back(std::make_pair(LESS_THAN, 4));
+    order_[3].push_back(std::make_pair(LESS_THAN, 4));
+    order_[5].push_back(std::make_pair(LESS_THAN, 6));
+    order_[1].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[3].push_back(std::make_pair(LARGER_THAN, 2));
+    order_[4].push_back(std::make_pair(LARGER_THAN, 2));
+    order_[4].push_back(std::make_pair(LARGER_THAN, 3));
+    order_[6].push_back(std::make_pair(LARGER_THAN, 5));
+  }
+
+  void Q22Query() {
+    vertex_count_ = 6;
+    con_.resize(vertex_count_);
+    con_[0].push_back(1);
+    con_[0].push_back(2);
+    con_[0].push_back(3);
+    con_[1].push_back(0);
+    con_[1].push_back(2);
+    con_[1].push_back(5);
+    con_[2].push_back(0);
+    con_[2].push_back(1);
+    con_[2].push_back(4);
+    con_[3].push_back(0);
+    con_[3].push_back(4);
+    con_[3].push_back(5);
+    con_[4].push_back(2);
+    con_[4].push_back(3);
+    con_[4].push_back(5);
+    con_[5].push_back(1);
+    con_[5].push_back(3);
+    con_[5].push_back(4);
+
+    order_.resize(vertex_count_);
+    order_[0].push_back(std::make_pair(LESS_THAN, 1));
+    order_[0].push_back(std::make_pair(LESS_THAN, 2));
+    order_[0].push_back(std::make_pair(LESS_THAN, 3));
+    order_[0].push_back(std::make_pair(LESS_THAN, 4));
+    order_[0].push_back(std::make_pair(LESS_THAN, 5));
+    order_[1].push_back(std::make_pair(LESS_THAN, 2));
+    order_[1].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[2].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[3].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[4].push_back(std::make_pair(LARGER_THAN, 0));
+    order_[5].push_back(std::make_pair(LARGER_THAN, 0));
     order_[2].push_back(std::make_pair(LARGER_THAN, 1));
   }
 };

@@ -13,4 +13,13 @@ typedef mgpu::launch_box_t<mgpu::arch_75_cta<128, 8, 8>,
 typedef mgpu::launch_box_t<mgpu::arch_75_cta<128, 1>, mgpu::arch_75_cta<128, 1>>
     MGPULaunchBoxVT1;
 
+/* 
+typedef mgpu::launch_box_t<mgpu::arch_75_cta<256, 8, 8>,
+                           mgpu::arch_75_cta<256, 8, 8>>
+    MGPULaunchBox;
+
+typedef mgpu::launch_box_t<mgpu::arch_75_cta<256, 1>, mgpu::arch_75_cta<256, 1>>
+    MGPULaunchBoxVT1;
+*/
+
 #endif

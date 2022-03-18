@@ -22,12 +22,12 @@ class HybridCoprocessPatternMatch : public HybridInterplayPatternMatch {
   }
 
  protected:
-  virtual void CPUExecute(long long *cpu_ans) {
+  virtual void CPUExecute(size_t *cpu_ans) {
 #pragma omp parallel num_threads(thread_num_)
     {
       InterPartTask task;
       while (inter_scheduler_->GetTask(task, true)) {
-        long long thread_cpu_ans = 0;
+        size_t thread_cpu_ans = 0;
         task.ans_ = &thread_cpu_ans;
         cpu_comp_->ThreadExecute(&task);
 
