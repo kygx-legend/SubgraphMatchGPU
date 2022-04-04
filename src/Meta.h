@@ -23,11 +23,16 @@ const static size_t WARPS_PER_BLOCK = THREADS_PER_BLOCK / THREADS_PER_WARP;
 const static size_t MAX_BLOCKS_NUM = 96 * 8;
 const static size_t MAX_THREADS_NUM = MAX_BLOCKS_NUM * THREADS_PER_BLOCK;
 
+//const static size_t kDeviceMemoryLimits[8] = {
+//    (size_t)(10.6 * 1024 * 1024 * 1024), (size_t)(10.6 * 1024 * 1024 * 1024),
+//    (size_t)(10.6 * 1024 * 1024 * 1024), (size_t)(10.6 * 1024 * 1024 * 1024),
+//    (size_t)(10.6 * 1024 * 1024 * 1024), (size_t)(10.6 * 1024 * 1024 * 1024),
+//    (size_t)(10.6 * 1024 * 1024 * 1024), (size_t)(10.6 * 1024 * 1024 * 1024)};
 const static size_t kDeviceMemoryLimits[8] = {
-    (size_t)(10.6 * 1024 * 1024 * 1024), (size_t)(10.6 * 1024 * 1024 * 1024),
-    (size_t)(10.6 * 1024 * 1024 * 1024), (size_t)(10.6 * 1024 * 1024 * 1024),
-    (size_t)(10.6 * 1024 * 1024 * 1024), (size_t)(10.6 * 1024 * 1024 * 1024),
-    (size_t)(10.6 * 1024 * 1024 * 1024), (size_t)(10.6 * 1024 * 1024 * 1024)};
+    (size_t)(14.5 * 1024 * 1024 * 1024), (size_t)(14.5 * 1024 * 1024 * 1024),
+    (size_t)(14.5 * 1024 * 1024 * 1024), (size_t)(14.5 * 1024 * 1024 * 1024),
+    (size_t)(14.5 * 1024 * 1024 * 1024), (size_t)(14.5 * 1024 * 1024 * 1024),
+    (size_t)(14.5 * 1024 * 1024 * 1024), (size_t)(14.5 * 1024 * 1024 * 1024)};
 
 const static size_t kMaxQueryVerticesNum = 7;
 // sample
