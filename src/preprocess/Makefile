@@ -6,8 +6,8 @@ LIBS = -lm
 OPENMP_FLAGS = -DOPENMP -fopenmp -lgomp
 CFLAGS += -std=c++11 -O3 -DBUILTIN_LOCK 
 
-all: preprocess_graph motif_cut
-build: preprocess_graph motif_cut
+all: preprocess_graph motif_cut fennel
+build: preprocess_graph motif_cut fennel
 
 OBJ = $(patsubst %.cpp,%.o,$(wildcard *.cpp))
 
@@ -20,5 +20,8 @@ preprocess_graph: PreprocessGraph.cpp
 motif_cut: MotifCut.cpp
 	$(GCC) $(OPENMP_FLAGS) $(CFLAGS) $(INCLUDE) -o $@ $^ $(LIBS)
 
+fennel: fennel.cc
+	$(GCC) $(OPENMP_FLAGS) $(CFLAGS) $(INCLUDE) -o $@ $^ $(LIBS)
+
 clean:
-	rm -rf preprocess_graph motif_cut *.o
+	rm -rf preprocess_graph motif_cut fennel *.o

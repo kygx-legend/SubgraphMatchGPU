@@ -16,6 +16,10 @@ class TimeMeasurer {
     return end_timestamp - start_timestamp;
   }
 
+  inline void PrintElapsedMicroSeconds(const std::string& time_tag) const {
+    std::cout << std::fixed << "finish " << time_tag << ", elapsed_time=" << (end_timestamp - start_timestamp) / 1000.0 << "ms" << std::endl;
+  }
+
   double wtime() {
     double time[2];
     struct timeval time1;

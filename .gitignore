@@ -33,6 +33,7 @@ pattern_match_benchmark
 labelpatternmatchgpu
 graph_reorder
 preprocess_graph
+fennel
 patternmatchcpu
 *pyc
 test_cnmem
